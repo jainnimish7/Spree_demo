@@ -11,7 +11,11 @@
     </div>
   <% elsif params.key?(:keywords) %>
     <div data-hook="products_search_results_heading_results_found">
-      <h1 class="search-results-title"><%= Spree.t(:search_results, keywords: Spree::Taxon.find(params[:taxon]).name) %></h1>
+      <% unless params[:taxon] == '' %>
+        <h1 class="search-results-title"><%= "\"#{Spree::Taxon.find(params[:taxon]).name}\"" %></h1>
+      <% else %>
+        <h1 class="search-results-title"><%= "\"All Departments\"" %></h1>
+      <% end %>
     </div>
   <% end %>
 </div>

@@ -11,11 +11,12 @@
 # config.setting_name = 'new value'
 Spree.config do |config|
   # Example:
+  config.products_per_page = 16
   # Uncomment to stop tracking inventory levels in the application
   # config.track_inventory_levels = false
 end
 
-Spree.user_class = "User"
+Spree.user_class = "Spree::User"
 
 # Ensure our environment is bootstrapped with a facebook connect app
 if ActiveRecord::Base.connection.table_exists? 'spree_authentication_methods'
