@@ -2,16 +2,13 @@
   <ul id="nav-bar" class="nav navbar-nav navbar-right" data-hook>
     <li><%= render :partial => 'spree/shared/search' %></li>
     <% if spree_current_user %>
-      <li><%= link_to Spree.t(:my_account), spree.account_path %></li>
-      <li><%= link_to Spree.t(:logout), spree.logout_path %></li>
+      <li><%= link_to Spree.t(:my_account), spree.account_path, id: 'my_account', title: "Press Ctrl+Shift+M for My Account" %></li>
+      <li><%= link_to Spree.t(:logout), spree.logout_path, accesskey: 'L', title: "Press Alt+L for Logout" %></li>
     <% else %>
-      <li id="link-to-login"><%= link_to Spree.t(:login), spree.login_path %></li>
-      <li><%= link_to Spree.t(:signup), spree_signup_path %></li>
+      <li id="link-to-login"><%= link_to Spree.t(:login), spree.login_path, accesskey: 'L', title: "Press Alt+L to login" %></li>
+      <li><%= link_to Spree.t(:signup), spree_signup_path, id: "sign_up_link", title: "Press Ctrl+Shift+S to signup" %></li>
     <% end %>
       <li id="link-to-cart">
-        <noscript>
-          <%= link_to Spree.t(:cart), '/cart' %>
-        </noscript>
         <script>Spree.fetch_cart()</script>
       </li>
   </ul>
